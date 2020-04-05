@@ -1,0 +1,48 @@
+<!-- 
+    This project uses following libraries.
+
+    latex2mathml https://github.com/osanshouo/latex2mathml
+    Copyright 2020 Hiromu Sugiura
+    MIT LIcense https://github.com/osanshouo/latex2mathml/blob/master/LICENSE
+
+    wasm-bindgen https://github.com/rustwasm/wasm-bindgen
+    Copyright (c) 2014 Alex Crichton
+    MIT license https://github.com/rustwasm/wasm-bindgen/blob/master/LICENSE-MIT
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LaTeX to MathML</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div><textarea id="story" name="story" rows="5">x = \frac{ - b \pm \sqrt{ b^2 - 4 a c } }{ 2 a }</textarea></div>
+    <div><button id="convert">Convert to MathML!</button></div>
+    <div id="output-html"></div>
+    <div id="output-text"></div>
+    <footer><a href="https://github.com/osanshouo/latex2mathml-web">repository</a></footer>
+    
+    <script type="module">
+        import init, {latex_to_mathml} from './pkg/latex2mathml_web.js';
+        async function run() {
+            await init();
+
+            let button = document.getElementById("convert");
+            button.addEventListener("click", () => {
+                let input = document.getElementById("story").value;
+                let output = latex_to_mathml(input);
+                
+                let html = document.getElementById("output-html");
+                html.innerHTML = output;
+                let text = document.getElementById("output-text");
+                text.innerText = output;
+            });
+        };
+        run();
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+body { text-align: center; }
+body * { max-width: 720px; margin: 0 auto; text-align: center; }
+textarea { width: 100%; text-align: left; }
+#output-html { margin-top: 2em; margin-bottom: 1em; }
+#output-text { border: solid; min-height: 2em; }
+
+footer { 
+    position: fixed;
+    top: calc(100vh - 3ex);
+}
