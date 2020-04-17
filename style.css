@@ -4,6 +4,10 @@ textarea { width: 100%; text-align: left; }
 #output-html { margin-top: 2em; margin-bottom: 1em; }
 #output-text { border: solid; min-height: 2em; }
 
+.description {
+    font-size: small;    
+}
+
 footer { 
     position: fixed;
     top: calc(100vh - 3ex);
