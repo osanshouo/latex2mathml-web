@@ -42,8 +42,14 @@
                 
                 let html = document.getElementById("output-html");
                 html.innerHTML = output;
+
                 let text = document.getElementById("output-text");
-                text.innerText = output;
+                if (output.slice(0, 7) == "[ERROR]") {
+                    text.innerText = "";
+                    return;
+                } else {
+                    text.innerText = output;
+                }
             });
         };
         run();
